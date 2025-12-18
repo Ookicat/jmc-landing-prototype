@@ -1,0 +1,50 @@
+import { useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+
+export function LatestNews() {
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    // Ensure Facebook SDK parses the new XFBML when component mounts
+    // @ts-ignore
+    if (window.FB) {
+      // @ts-ignore
+      window.FB.XFBML.parse();
+    }
+  }, []);
+  
+  return (
+    <section id="latest-news" className="py-16 bg-white">
+      <div className="container mx-auto px-4 lg:px-8">
+        <h2 className="text-center mb-12 text-[#f06292] font-extrabold text-3xl">{t('news.title')}</h2>
+        
+        <div className="max-w-4xl mx-auto text-center">
+          
+            <p className="text-gray-600 mb-8">{t('news.followUs')}</p>
+            
+            <div className="flex justify-center">
+              {/* Added wrapper with explicit width to prevent flexbox collapse */}
+              <div className="w-full max-w-[500px] overflow-hidden">
+                <div 
+                  className="fb-page" 
+                  data-href="https://www.facebook.com/clbJSC" 
+                  data-tabs="timeline" 
+                  data-width="500" 
+                  data-height="" 
+                  data-small-header="false" 
+                  data-adapt-container-width="true" 
+                  data-hide-cover="false" 
+                  data-show-facepile="true"
+                >
+                  <blockquote cite="https://www.facebook.com/clbJSC" className="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/clbJSC">JSC Maid Cafe</a>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  );
+}
