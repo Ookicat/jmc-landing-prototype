@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../assets/logo.png';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -44,7 +45,7 @@ export function Header() {
           {/* Logo */}
           <button onClick={() => navigateToPage('home')} className="flex-shrink-0">
             <div className="w-16 flex items-center justify-center">
-              <img src="src/assets/logo.png" alt="JSC Maid Cafe Logo" className="w-full h-auto" />
+              <img src={logo} alt="JSC Maid Cafe Logo" className="w-full h-auto" />
             </div>
           </button>
 
