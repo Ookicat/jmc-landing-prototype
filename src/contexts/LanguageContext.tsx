@@ -204,7 +204,7 @@ const translations = {
     'footer.address4': 'Thành phố Thủ Đức, TP. Hồ Chí Minh',
     'footer.followFacebook': 'Theo dõi chúng tôi trên Facebook',
     'footer.copyright': '© 2025 JSC Maid Cafe.',
-    'footer.organizer': 'Tổ chức bởi Câu lạc bộ Japan Style (JSC) - ĐH FPT TP.HCM',
+    'footer.organizer': 'Tổ chức bởi Câu lạc bộ Japan Style Club (JSC) - ĐH FPT TP.HCM',
     
     // Info Pages
     'schedule.title': 'Lịch Trình Sự Kiện',
