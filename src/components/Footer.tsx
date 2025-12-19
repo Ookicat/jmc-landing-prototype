@@ -1,6 +1,5 @@
 import { Mail, Phone, Facebook } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import logo from '../assets/logo.png';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -74,7 +73,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-pink-300/30 text-center text-sm text-pink-100">
           <div className="flex flex-col items-center gap-3">
             <img
-              src={logo}
+              src={"src/assets/logo.png"}
               alt="JSC Maid Cafe logo"
               className="h-8 w-auto opacity-95"
             />
