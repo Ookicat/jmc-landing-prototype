@@ -65,8 +65,8 @@ export default function App() {
         {renderPage()}
         <Footer />
         <ScrollToTop />
-        <Analytics />
       </div>
+      <Analytics />
     </LanguageProvider>
   );
 }
