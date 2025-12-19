@@ -50,10 +50,10 @@ export function LatestNews() {
               className="koi-decoration"
               style={{
                 position: 'absolute',
-                bottom: '-16px',
-                right: '-26px',
-                width: '15vh',
-                height: '15vh',
+                bottom: '-30px',
+                right: '-30px',
+                width: '100px',
+                height: 'auto',
                 objectFit: 'contain',
                 pointerEvents: 'none',
                 transform: 'scaleX(-1)'
@@ -62,10 +62,17 @@ export function LatestNews() {
             <style>{`
               @media (min-width: 1024px) {
                 .koi-decoration {
-                  width: 25vh !important;
-                  height: 25vh !important;
+                  width: 200px !important;
                   bottom: -60px !important;
                   right: -100px !important;
+                }
+              }
+
+              @media (min-width: 768px) {
+                .koi-decoration {
+                  width: 120px !important;
+                  bottom: -40px !important;
+                  right: -50px !important;
                 }
               }
             `}</style>
