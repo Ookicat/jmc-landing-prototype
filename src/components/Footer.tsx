@@ -30,7 +30,7 @@ export function Footer() {
 
               <div className="flex items-center gap-3">
                 <a 
-                  href="https://www.facebook.com" 
+                  href="https://www.facebook.com/clbJSC" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-pink-100 transition-colors"
