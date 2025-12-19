@@ -1,11 +1,12 @@
 import { Mail, Phone, Facebook } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../assets/logo.png';
 
 export function Footer() {
   const { t } = useLanguage();
   
   return (
-    <footer id="footer" className="bg-gradient-to-br from-[#f06292] to-[#f7a1c4] text-white py-12">
+    <footer id="footer" className="bg-gradient-to-br from-maid-cafe-primary to-maid-cafe-secondary text-white py-12">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Section */}
@@ -73,7 +74,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-pink-300/30 text-center text-sm text-pink-100">
           <div className="flex flex-col items-center gap-3">
             <img
-              src={"src/assets/logo.png"}
+              src={logo}
               alt="JSC Maid Cafe logo"
               className="h-8 w-auto opacity-95"
             />

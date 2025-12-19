@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#f2f4f7]">
+      <div className="min-h-screen bg-maid-cafe-bg-light">
         <Header />
         {renderPage()}
         <Footer />

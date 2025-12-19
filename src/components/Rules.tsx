@@ -15,9 +15,9 @@ export function Rules() {
   ];
 
   return (
-    <section id="rules" className="py-16 bg-[#f2f4f7]">
+    <section id="rules" className="py-16 bg-maid-cafe-bg-light">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-center mb-12 text-[#f06292] font-extrabold text-3xl">{t('rules.title')}</h2>
+        <h2 className="text-center mb-12 text-maid-cafe-primary font-extrabold text-3xl">{t('rules.title')}</h2>
         
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -27,8 +27,8 @@ export function Rules() {
             
             <div className="space-y-4">
               {rules.map((ruleKey, index) => (
-                <div key={index} className="flex gap-4 p-4 bg-[#f2f4f7] rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#f06292] rounded-full flex items-center justify-center text-white">
+                <div key={index} className="flex gap-4 p-4 bg-maid-cafe-bg-light rounded-lg">
+                  <div className="flex-shrink-0 w-8 h-8 bg-maid-cafe-primary rounded-full flex items-center justify-center text-white">
                     {index + 1}
                   </div>
                   <p className="text-gray-700 flex-1">{t(ruleKey)}</p>
@@ -36,7 +36,7 @@ export function Rules() {
               ))}
             </div>
 
-            <div className="mt-8 p-4 bg-pink-50 border-l-4 border-[#f06292] rounded">
+            <div className="mt-8 p-4 bg-pink-50 border-l-4 border-maid-cafe-primary rounded">
               <p className="text-sm text-gray-700">
                 <strong>Note:</strong> {t('rules.note')}
               </p>

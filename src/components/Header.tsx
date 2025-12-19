@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../assets/logo.png';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -44,19 +45,19 @@ export function Header() {
           {/* Logo */}
           <button onClick={() => navigateToPage('home')} className="flex-shrink-0">
             <div className="w-16 flex items-center justify-center">
-              <img src="src/assets/logo.png" alt="JSC Maid Cafe Logo" className="w-full h-auto" />
+              <img src={logo} alt="JSC Maid Cafe Logo" className="w-full h-auto" />
             </div>
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('latest-news')} className="hover:text-[#f06292] transition-colors">
+          <div className="hidden lg:flex items-center space-x-8 font-semibold">
+            <button onClick={() => scrollToSection('latest-news')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.latestNews')}
             </button>
             
             <div className="relative group">
               <button 
-                className="flex items-center gap-1 hover:text-[#f06292] transition-colors"
+                className="flex items-center gap-1 hover:text-maid-cafe-primary transition-colors"
                 onMouseEnter={() => setIsInfoOpen(true)}
                 onMouseLeave={() => setIsInfoOpen(false)}
               >
@@ -69,39 +70,39 @@ export function Header() {
                   onMouseEnter={() => setIsInfoOpen(true)}
                   onMouseLeave={() => setIsInfoOpen(false)}
                 >
-                  <button onClick={() => navigateToPage('schedule')} className="block w-full text-left px-4 py-2 hover:bg-[#f2f4f7] transition-colors">
+                  <button onClick={() => navigateToPage('schedule')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
                     {t('nav.eventSchedule')}
                   </button>
-                  <button onClick={() => navigateToPage('floorplan')} className="block w-full text-left px-4 py-2 hover:bg-[#f2f4f7] transition-colors">
+                  <button onClick={() => navigateToPage('floorplan')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
                     {t('nav.floorplan')}
                   </button>
-                  <button onClick={() => navigateToPage('gallery')} className="block w-full text-left px-4 py-2 hover:bg-[#f2f4f7] transition-colors">
+                  <button onClick={() => navigateToPage('gallery')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
                     {t('nav.gallery')}
                   </button>
                 </div>
               )}
             </div>
 
-            <button onClick={() => scrollToSection('activities')} className="hover:text-[#f06292] transition-colors">
+            <button onClick={() => scrollToSection('activities')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.activities')}
             </button>
-            <button onClick={() => scrollToSection('menu')} className="hover:text-[#f06292] transition-colors">
+            <button onClick={() => scrollToSection('menu')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.menu')}
             </button>
-            <button onClick={() => scrollToSection('rules')} className="hover:text-[#f06292] transition-colors">
+            <button onClick={() => scrollToSection('rules')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.rules')}
             </button>
-            <button onClick={() => scrollToSection('faq')} className="hover:text-[#f06292] transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.faq')}
             </button>
-            <button onClick={() => scrollToSection('footer')} className="hover:text-[#f06292] transition-colors">
+            <button onClick={() => scrollToSection('footer')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.contactUs')}
             </button>
 
             {/* Language Toggle */}
             <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f2f4f7] hover:bg-[#f06292] hover:text-white transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-maid-cafe-bg-light hover:bg-maid-cafe-primary hover:text-white transition-colors"
             >
               <Globe className="w-4 h-4" />
               <span className="uppercase">{language}</span>
@@ -110,7 +111,7 @@ export function Header() {
 
           {/* Desktop Event Info */}
           <div className="hidden lg:block text-right">
-            <div className="text-[#f06292]">{t('nav.eventName')}</div>
+            <div className="text-maid-cafe-primary">{t('nav.eventName')}</div>
             <div className="text-sm">{t('nav.eventDate')}</div>
             <div className="text-xs text-gray-600">{t('nav.eventLocation')}</div>
           </div>
@@ -120,7 +121,7 @@ export function Header() {
             className="lg:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6 text-[#f06292]" /> : <Menu className="w-6 h-6 text-[#f06292]" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6 text-maid-cafe-primary" /> : <Menu className="w-6 h-6 text-maid-cafe-primary" />}
           </button>
         </div>
 
@@ -128,14 +129,14 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-gray-200">
             <div className="mb-4 pb-4 border-b border-gray-200">
-              <div className="text-[#f06292]">{t('nav.eventName')}</div>
+              <div className="text-maid-cafe-primary">{t('nav.eventName')}</div>
               <div className="text-sm">{t('nav.eventDate')}</div>
               <div className="text-xs text-gray-600">{t('nav.eventLocation')}</div>
               
               {/* Mobile Language Toggle */}
               <button 
                 onClick={toggleLanguage}
-                className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f2f4f7] hover:bg-[#f06292] hover:text-white transition-colors"
+                className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-maid-cafe-bg-light hover:bg-maid-cafe-primary hover:text-white transition-colors"
               >
                 <Globe className="w-4 h-4" />
                 <span className="uppercase">{language}</span>
@@ -143,13 +144,13 @@ export function Header() {
             </div>
             
             <div className="space-y-2">
-              <button onClick={() => scrollToSection('latest-news')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+              <button onClick={() => scrollToSection('latest-news')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                 {t('nav.latestNews')}
               </button>
               
               <div>
                 <button 
-                  className="flex items-center justify-between w-full py-2 hover:text-[#f06292] transition-colors"
+                  className="flex items-center justify-between w-full py-2 hover:text-maid-cafe-primary transition-colors"
                   onClick={() => setIsInfoOpen(!isInfoOpen)}
                 >
                   {t('nav.info')}
@@ -157,32 +158,32 @@ export function Header() {
                 </button>
                 {isInfoOpen && (
                   <div className="pl-4 space-y-2 mt-2">
-                    <button onClick={() => navigateToPage('schedule')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+                    <button onClick={() => navigateToPage('schedule')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                       {t('nav.eventSchedule')}
                     </button>
-                    <button onClick={() => navigateToPage('floorplan')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+                    <button onClick={() => navigateToPage('floorplan')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                       {t('nav.floorplan')}
                     </button>
-                    <button onClick={() => navigateToPage('gallery')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+                    <button onClick={() => navigateToPage('gallery')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                       {t('nav.gallery')}
                     </button>
                   </div>
                 )}
               </div>
 
-              <button onClick={() => scrollToSection('activities')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+              <button onClick={() => scrollToSection('activities')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                 {t('nav.activities')}
               </button>
-              <button onClick={() => scrollToSection('menu')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+              <button onClick={() => scrollToSection('menu')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                 {t('nav.menu')}
               </button>
-              <button onClick={() => scrollToSection('rules')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+              <button onClick={() => scrollToSection('rules')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                 {t('nav.rules')}
               </button>
-              <button onClick={() => scrollToSection('faq')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+              <button onClick={() => scrollToSection('faq')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                 {t('nav.faq')}
               </button>
-              <button onClick={() => scrollToSection('footer')} className="block w-full text-left py-2 hover:text-[#f06292] transition-colors">
+              <button onClick={() => scrollToSection('footer')} className="block w-full text-left py-2 hover:text-maid-cafe-primary transition-colors">
                 {t('nav.contactUs')}
               </button>
             </div>

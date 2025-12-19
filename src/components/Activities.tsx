@@ -36,9 +36,9 @@ export function Activities() {
   };
 
   return (
-    <section id="activities" className="py-16 bg-[#f2f4f7]">
+    <section id="activities" className="py-16 bg-maid-cafe-bg-light">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-center mb-12 text-[#f06292] font-extrabold text-3xl">{t('activities.title')}</h2>
+        <h2 className="text-center mb-12 text-maid-cafe-primary font-extrabold text-3xl">{t('activities.title')}</h2>
         
         {/* Desktop View - 3 Column Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-8">
@@ -50,7 +50,7 @@ export function Activities() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="mb-3 text-[#f06292] text-lg font-bold">{t(activity.titleKey)}</h3>
+                <h3 className="mb-3 text-maid-cafe-primary text-lg font-bold">{t(activity.titleKey)}</h3>
                 <p className="text-gray-600">{t(activity.descKey)}</p>
               </div>
             </div>
@@ -66,7 +66,7 @@ export function Activities() {
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
-              <h3 className="mb-3 text-[#f06292]">{t(activities[currentIndex].titleKey)}</h3>
+              <h3 className="mb-3 text-maid-cafe-primary">{t(activities[currentIndex].titleKey)}</h3>
               <p className="text-gray-600">{t(activities[currentIndex].descKey)}</p>
             </div>
           </div>
@@ -75,14 +75,14 @@ export function Activities() {
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={prevSlide}
-              className="bg-[#f06292] text-white p-3 rounded-full hover:bg-[#f7a1c4] transition-colors shadow-lg"
+              className="bg-maid-cafe-primary text-white p-3 rounded-full hover:bg-maid-cafe-secondary transition-colors shadow-lg"
               aria-label="Previous activity"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="bg-[#f06292] text-white p-3 rounded-full hover:bg-[#f7a1c4] transition-colors shadow-lg"
+              className="bg-maid-cafe-primary text-white p-3 rounded-full hover:bg-maid-cafe-secondary transition-colors shadow-lg"
               aria-label="Next activity"
             >
               <ChevronRight className="w-6 h-6" />
@@ -96,7 +96,7 @@ export function Activities() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-[#f06292] w-8' : 'bg-gray-300'
+                  index === currentIndex ? 'bg-maid-cafe-primary w-8' : 'bg-gray-300'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

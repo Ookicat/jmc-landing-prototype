@@ -22,19 +22,19 @@ export function FAQ() {
   return (
     <section id="faq" className="py-16 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-center mb-12 text-[#f06292] font-extrabold text-3xl">{t('faq.title')}</h2>
+        <h2 className="text-center mb-12 text-maid-cafe-primary font-extrabold text-3xl">{t('faq.title')}</h2>
         
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-[#f2f4f7] rounded-xl overflow-hidden shadow-md">
+              <div key={index} className="bg-maid-cafe-bg-light rounded-xl overflow-hidden shadow-md">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-pink-50 transition-colors"
                 >
                   <span className="pr-4">{t(faq.questionKey)}</span>
                   <ChevronDown 
-                    className={`w-5 h-5 text-[#f06292] flex-shrink-0 transition-transform ${
+                    className={`w-5 h-5 text-maid-cafe-primary flex-shrink-0 transition-transform ${
                       openIndex === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -49,7 +49,7 @@ export function FAQ() {
             ))}
           </div>
 
-          <div className="mt-8 text-center p-6 bg-[#f06292] rounded-2xl text-white">
+          <div className="mt-8 text-center p-6 bg-maid-cafe-primary rounded-2xl text-white">
             <p className="font-bold">{t('faq.stillQuestions')}</p>
             <p className="text-sm mt-2">{t('faq.contactInfo')}</p>
           </div>
