@@ -35,7 +35,7 @@ export function Header() {
   };
 
   const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'vi' : 'en');
+    setLanguage(language === 'vi' ? 'en' : 'vi');
   };
 
   return (
@@ -66,19 +66,21 @@ export function Header() {
               </button>
               {isInfoOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2"
+                  className="absolute top-full left-0 pt-2"
                   onMouseEnter={() => setIsInfoOpen(true)}
                   onMouseLeave={() => setIsInfoOpen(false)}
                 >
-                  <button onClick={() => navigateToPage('schedule')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
-                    {t('nav.eventSchedule')}
-                  </button>
-                  <button onClick={() => navigateToPage('floorplan')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
-                    {t('nav.floorplan')}
-                  </button>
-                  <button onClick={() => navigateToPage('gallery')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
-                    {t('nav.gallery')}
-                  </button>
+                  <div className="w-48 bg-white rounded-lg shadow-lg py-2">
+                    <button onClick={() => navigateToPage('schedule')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
+                      {t('nav.eventSchedule')}
+                    </button>
+                    <button onClick={() => navigateToPage('floorplan')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
+                      {t('nav.floorplan')}
+                    </button>
+                    <button onClick={() => navigateToPage('gallery')} className="block w-full text-left px-4 py-2 hover:bg-maid-cafe-bg-light transition-colors">
+                      {t('nav.gallery')}
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
