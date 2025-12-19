@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { Analytics } from '@vercel/analytics/next';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { LatestNews } from './components/LatestNews';
@@ -64,6 +65,7 @@ export default function App() {
         {renderPage()}
         <Footer />
         <ScrollToTop />
+        <Analytics />
       </div>
     </LanguageProvider>
   );
