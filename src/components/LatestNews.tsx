@@ -68,11 +68,11 @@ export function LatestNews() {
                 }
               }
 
-              @media (min-width: 768px) {
+              @media (min-width: 768px) and (max-width: 1023px) {
                 .koi-decoration {
-                  width: 120px !important;
+                  width: 160px !important;
                   bottom: -40px !important;
-                  right: -50px !important;
+                  right: -70px !important;
                 }
               }
             `}</style>
