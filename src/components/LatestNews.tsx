@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import koiChan from '../assets/koi-chan.png'; // Import your koi-chan image
+import koiChan from '../assets/te-ca.png'; // Import your koi-chan image
 
 export function LatestNews() {
   const { t } = useLanguage();
@@ -51,8 +51,8 @@ export function LatestNews() {
               style={{
                 position: 'absolute',
                 bottom: '-30px',
-                right: '-30px',
-                width: '100px',
+                right: '-50px',
+                width: '200px',
                 height: 'auto',
                 objectFit: 'contain',
                 pointerEvents: 'none',
@@ -62,17 +62,17 @@ export function LatestNews() {
             <style>{`
               @media (min-width: 1024px) {
                 .koi-decoration {
-                  width: 200px !important;
+                  width: 370px !important;
                   bottom: -60px !important;
-                  right: -100px !important;
+                  right: -155px !important;
                 }
               }
 
               @media (min-width: 768px) and (max-width: 1023px) {
                 .koi-decoration {
-                  width: 160px !important;
+                  width: 300px !important;
                   bottom: -40px !important;
-                  right: -70px !important;
+                  right: -130px !important;
                 }
               }
             `}</style>
