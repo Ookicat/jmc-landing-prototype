@@ -51,7 +51,7 @@ export default function App() {
             <LatestNews />
             <Activities />
             <Menu />
-            <Rules />
+            {/* <Rules /> */}
             <FAQ />
           </main>
         );

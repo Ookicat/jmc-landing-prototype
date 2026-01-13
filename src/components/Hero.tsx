@@ -12,7 +12,7 @@ export function Hero() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-01-16T00:00:00').getTime();
+    const targetDate = new Date('2026-02-27T00:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();

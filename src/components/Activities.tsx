@@ -1,10 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+
+const CountdownOverlay = ({ timeLeft }: { timeLeft: { days: number; hours: number; minutes: number; seconds: number } }) => (
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 p-4">
+    <div className="absolute inset-0 bg-maid-cafe-primary opacity-70"></div>
+    <div className="relative z-10 text-center">
+      <div className="text-lg font-bold mb-1 uppercase tracking-wider drop-shadow-sm">Countdown</div>
+      <div className="text-3xl font-extrabold tabular-nums drop-shadow-md">
+        {String(timeLeft.days).padStart(2, '0')}d {String(timeLeft.hours).padStart(2, '0')}h {String(timeLeft.minutes).padStart(2, '0')}m {String(timeLeft.seconds).padStart(2, '0')}s
+      </div>
+    </div>
+  </div>
+);
 
 export function Activities() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const calculateTimeLeft = () => {
+    // Target date: Feb 7, 2026
+    const difference = +new Date(2026, 1, 7) - +new Date();
+    let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const activities = [
     {
@@ -43,7 +81,7 @@ export function Activities() {
         {/* Desktop View - 3 Column Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {activities.map((activity) => (
-            <div key={activity.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div key={activity.id} className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img 
                 src={activity.image} 
                 alt={t(activity.titleKey)}
@@ -53,13 +91,14 @@ export function Activities() {
                 <h3 className="mb-3 text-maid-cafe-primary text-lg font-bold">{t(activity.titleKey)}</h3>
                 <p className="text-gray-600">{t(activity.descKey)}</p>
               </div>
+              <CountdownOverlay timeLeft={timeLeft} />
             </div>
           ))}
         </div>
 
         {/* Mobile View - Carousel */}
         <div className="md:hidden relative">
-          <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img 
               src={activities[currentIndex].image} 
               alt={t(activities[currentIndex].titleKey)}
@@ -69,6 +108,7 @@ export function Activities() {
               <h3 className="mb-3 text-maid-cafe-primary">{t(activities[currentIndex].titleKey)}</h3>
               <p className="text-gray-600">{t(activities[currentIndex].descKey)}</p>
             </div>
+            <CountdownOverlay timeLeft={timeLeft} />
           </div>
 
           {/* Navigation Buttons */}

@@ -91,9 +91,9 @@ export function Header() {
             <button onClick={() => scrollToSection('menu')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.menu')}
             </button>
-            <button onClick={() => scrollToSection('rules')} className="hover:text-maid-cafe-primary transition-colors">
+            {/* <button onClick={() => scrollToSection('rules')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.rules')}
-            </button>
+            </button> */}
             <button onClick={() => scrollToSection('faq')} className="hover:text-maid-cafe-primary transition-colors">
               {t('nav.faq')}
             </button>
