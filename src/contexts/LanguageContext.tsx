@@ -24,13 +24,13 @@ const translations = {
     'nav.faq': 'FAQ',
     'nav.contactUs': 'Contact Us',
     'nav.eventName': 'Sakura No Saki',
-    'nav.eventDate': 'February 27, 2026',
+    'nav.eventDate': 'July 4th, 2026',
     'nav.eventLocation': 'FPT University HCM, Floor 4, Hall A',
     
     // Hero
     'hero.title': 'Sakura No Saki',
     'hero.headline': 'TBA (Headline for event)',
-    'hero.date': 'February 27, 2026',
+    'hero.date': 'July 4th, 2026',
     'hero.location': 'FPT University HCM, Floor 4, Hall A',
     'hero.viewMenu': 'View Menu',
     'hero.days': 'Days',
@@ -41,7 +41,7 @@ const translations = {
     // Latest News
     'news.title': 'Latest News',
     'news.followUs': 'Follow our Facebook page for the latest updates!',
-    'news.post1': '🎉 Exciting announcement! JSC Maid Cafe is coming to FPT University HCM on February 27, 2026!',
+    'news.post1': '🎉 Exciting announcement! JSC Maid Cafe is coming to FPT University HCM on July 4th, 2026!',
     'news.post1Time': '2 days ago',
     'news.post2': '☕ Our menu is almost ready! Stay tuned for delicious treats and special drinks!',
     'news.post2Time': '1 week ago',
@@ -80,7 +80,7 @@ const translations = {
     'faq.q1': 'Do I need to purchase tickets in advance?',
     'faq.a1': 'Idk',
     'faq.q2': 'What time does the event start and end?',
-    'faq.a2': 'The event will be held on February 27, 2026. Specific timings will be announced closer to the event date.',
+    'faq.a2': 'The event will be held on July 4th, 2026. Specific timings will be announced closer to the event date.',
     'faq.q3': 'Is there a dress code for the event?',
     'faq.a3': 'While there is no strict dress code, we encourage guests to dress comfortably and appropriately for the cafe atmosphere.',
     'faq.q4': 'Can I bring my own camera?',
@@ -127,13 +127,13 @@ const translations = {
     'nav.faq': 'Câu Hỏi Thường Gặp',
     'nav.contactUs': 'Liên Hệ',
     'nav.eventName': 'Sakura No Saki',
-    'nav.eventDate': '27 Tháng 2, 2026',
+    'nav.eventDate': '4 Tháng 7, 2026',
     'nav.eventLocation': 'ĐH FPT TP.HCM, Tầng 4, Hall A',
     
     // Hero
     'hero.title': 'Sakura No Saki',
-    'hero.headline': 'TBA (Tiêu đề sự kiện)',
-    'hero.date': '27 Tháng 2, 2026',
+    'hero.headline': 'Mùa hoa nở, Tình cờ gặp gỡ',
+    'hero.date': '4 Tháng 7, 2026',
     'hero.location': 'ĐH FPT TP.HCM, Tầng 4, Hall A',
     'hero.viewMenu': 'Xem Thực Đơn',
     'hero.days': 'Ngày',
@@ -143,14 +143,14 @@ const translations = {
     
     // Latest News
     'news.title': 'Tin Tức Mới Nhất',
-    'news.followUs': 'Theo dõi trang Facebook của chúng tôi để cập nhật thông tin mới nhất!',
-    'news.post1': '🎉 Thông báo thú vị! JSC Maid Cafe sẽ đến ĐH FPT TP.HCM vào ngày 27 tháng 2 năm 2026!',
+    'news.followUs': 'Theo dõi trang Facebook của chúng tớ để cập nhật thông tin mới nhất!',
+    'news.post1': '🎉 Thông báo thú vị! JSC Maid Cafe sẽ đến ĐH FPT TP.HCM vào ngày 4 Tháng 7 năm 2026!',
     'news.post1Time': '2 ngày trước',
-    'news.post2': '☕ Thực đơn của chúng tôi gần hoàn thành! Hãy chờ đón các món ăn ngon và đồ uống đặc biệt!',
+    'news.post2': '☕ Thực đơn của chúng tớ gần hoàn thành! Hãy chờ đón các món ăn ngon và đồ uống đặc biệt!',
     'news.post2Time': '1 tuần trước',
-    'news.post3': '📸 Công tác chuẩn bị hậu trường đang diễn ra sôi nổi! Chúng tôi rất mong được chào đón các bạn!',
+    'news.post3': '📸 Công tác chuẩn bị hậu trường đang diễn ra sôi nổi! chúng tớ rất mong được chào đón các bạn!',
     'news.post3Time': '2 tuần trước',
-    'news.visitPage': 'Truy cập trang Facebook của chúng tôi →',
+    'news.visitPage': 'Truy cập trang Facebook của chúng tớ →',
     
     // Activities
     'activities.title': 'Hoạt Động',
@@ -183,9 +183,9 @@ const translations = {
     'faq.q1': 'Tôi có cần mua vé trước không?',
     'faq.a1': 'Chịu',
     'faq.q2': 'Sự kiện bắt đầu và kết thúc lúc mấy giờ?',
-    'faq.a2': 'Sự kiện sẽ được tổ chức vào ngày 27 tháng 2 năm 2026. Thời gian cụ thể sẽ được công bố gần đến ngày sự kiện.',
+    'faq.a2': 'Sự kiện sẽ được tổ chức vào ngày 4 Tháng 7 năm 2026. Thời gian cụ thể sẽ được công bố gần đến ngày sự kiện.',
     'faq.q3': 'Có yêu cầu về trang phục không?',
-    'faq.a3': 'Mặc dù không có quy định nghiêm ngặt về trang phục, chúng tôi khuyến khích khách mặc thoải mái và phù hợp với không khí quán cafe.',
+    'faq.a3': 'Mặc dù không có quy định nghiêm ngặt về trang phục, chúng tớ khuyến khích khách mặc thoải mái và phù hợp với không khí quán cafe.',
     'faq.q4': 'Tôi có thể mang máy ảnh riêng không?',
     'faq.a4': 'Chịu',
     'faq.q5': 'Có các lựa chọn ăn chay hoặc chế độ ăn đặc biệt không?',
@@ -193,7 +193,7 @@ const translations = {
     'faq.q6': 'Làm thế nào để đến địa điểm tổ chức?',
     'faq.a6': 'Sự kiện sẽ được tổ chức tại Cơ sở ĐH FPT TP.HCM, Tầng 4, Hall A. Hướng dẫn chi tiết và thông tin đỗ xe sẽ được cung cấp gần đến ngày sự kiện.',
     'faq.stillQuestions': 'Vẫn còn thắc mắc?',
-    'faq.contactInfo': 'Vui lòng liên hệ với chúng tôi hoặc kiểm tra trang Facebook để biết thêm thông tin!',
+    'faq.contactInfo': 'Vui lòng liên hệ với chúng tớ hoặc kiểm tra trang Facebook để biết thêm thông tin!',
     
     // Footer
     'footer.eventName': 'Sakura No Saki',
@@ -202,7 +202,7 @@ const translations = {
     'footer.address2': 'Tầng 4, Hall A',
     'footer.address3': 'Lô E2a-7, Đường D1, D. D1, Long Thạnh Mỹ,',
     'footer.address4': 'Thành phố Thủ Đức, TP. Hồ Chí Minh',
-    'footer.followFacebook': 'Theo dõi chúng tôi trên Facebook',
+    'footer.followFacebook': 'Theo dõi chúng tớ trên Facebook',
     'footer.copyright': '© 2025 Sakura No Saki.',
     'footer.organizer': 'Tổ chức bởi Câu lạc bộ Japan Style Club (JSC) - ĐH FPT TP.HCM',
     

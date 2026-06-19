@@ -1,4 +1,9 @@
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
+@font-face {
+  font-family: "SVN-Tangerine HB";
+  src: url("/fonts/SVN-Tangerine HB.otf") format("opentype");
+}
+
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     *, :before, :after, ::backdrop {
@@ -1321,7 +1326,7 @@
 
 :root {
   --font-size: 16px;
-  --font-family-base: "Sharp Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-family-base: "SVN-Tangerine HB", "Sharp Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --background: #fff;
   --foreground: oklch(.145 0 0);
   --card: #fff;
@@ -1401,6 +1406,8 @@
   --sidebar-ring: oklch(.439 0 0);
 }
 
+/* CUSTOM VALUE */
+
 .pink-theme {
   --maid-cafe-bg-light: #f7a1c4;
   --background: #f7a1c4;
@@ -1408,6 +1415,32 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* Global letter spacing (adjust value as needed) */
+:root {
+  --letter-spacing-global: 0.15em;
+}
+
+html, body {
+  letter-spacing: var(--letter-spacing-global);
+}
+
+.text-outline-white {
+  /* Remove -webkit-text-stroke entirely */
+  
+  text-shadow:
+    /* 2px on the corners */
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff,
+     
+    /* 2px on the top, bottom, left, right */
+    -2px  0px 0 #ffffff,
+     2px  0px 0 #ffffff,
+     0px  2px 0 #ffffff,
+     0px -2px 0 #ffffff;
 }
 
 @property --tw-space-y-reverse {

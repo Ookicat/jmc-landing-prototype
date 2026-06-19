@@ -11,8 +11,9 @@ export function Hero() {
     seconds: 0
   });
 
+  // Change event countdown date
   useEffect(() => {
-    const targetDate = new Date('2026-02-27T00:00:00').getTime();
+    const targetDate = new Date('2026-07-04T00:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -57,11 +58,11 @@ export function Hero() {
           <div className="w-1/2 flex items-center">
             <div className="container ml-auto px-4 lg:px-8 space-y-6">
               <div>
-                <h1 className="text-5xl lg:text-6xl text-maid-cafe-primary mb-4 font-extrabold">{t('hero.title')}</h1>
+                <h1 className="text-5xl lg:text-6xl text-maid-cafe-primary mb-4 font-extrabold text-outline-white">{t('hero.title')}</h1>
+                <p className="text-maid-cafe-primary font-bold">{t('hero.headline')}</p>
                 <div className="w-full h-2 bg-black mb-6 my-8"></div>
               </div>
               <div className="space-y-2 text-[25px]">
-                <p className="text-black font-bold">{t('hero.headline')}</p>
                 <p className="font-bold">{t('hero.date')}</p>
                 <p className="text-black font-bold">{t('hero.location')}</p>
               </div>
@@ -84,8 +85,8 @@ export function Hero() {
               alt="JSC Maid Cafe Key Visual"
               className="w-full h-full object-cover"
               style={{ 
-                objectPosition: '50% 10%', 
-                maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)'
+                objectPosition: '40% 10%', 
+                maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
               }}
             />
           </div>
