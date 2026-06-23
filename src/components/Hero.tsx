@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import heroImage from '../assets/key-visual-mobile-up.png';
+import heroImage from '../assets/key-visual-mobile-up.webp';
 
 export function Hero() {
   const { t } = useLanguage();

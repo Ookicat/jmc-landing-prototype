@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import koiChan from '../assets/te-ca.png'; // Import your koi-chan image
+import koiChan from '../assets/te-ca.webp';
 
 export function LatestNews() {
   const { t } = useLanguage();
@@ -19,7 +19,7 @@ export function LatestNews() {
       <div className="container mx-auto px-4 lg:px-8">
         <h2 className="text-center mb-12 text-maid-cafe-primary font-extrabold text-3xl">{t('news.title')}</h2>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="news-container max-w-4xl mx-auto">
           <div className="bg-maid-cafe-bg-light rounded-2xl p-8 text-center relative">
             <p className="text-gray-600 mb-4">{t('news.followUs')}</p>
 
@@ -52,7 +52,7 @@ export function LatestNews() {
                 position: 'absolute',
                 bottom: '-30px',
                 right: '-50px',
-                width: '200px',
+                width: '100px',
                 height: 'auto',
                 objectFit: 'contain',
                 pointerEvents: 'none',
@@ -60,19 +60,66 @@ export function LatestNews() {
               }}
             />
             <style>{`
-              @media (min-width: 1024px) {
+              /* 1. Mobile/Smallest screens first */
+              @media (min-width: 320px) and (max-width: 376px) {
                 .koi-decoration {
-                  width: 370px !important;
-                  bottom: -60px !important;
-                  right: -155px !important;
+                  width: 80px !important;
+                  bottom: -30px !important;
+                  right: -10px !important;
                 }
               }
 
-              @media (min-width: 768px) and (max-width: 1023px) {
+              /* 2. Next size up */
+              @media (min-width: 425px) {
                 .koi-decoration {
-                  width: 300px !important;
+                  width: 80px !important;
+                  bottom: -30px !important;
+                  right: -10px !important;
+                }
+              }
+
+              /* 3. Tablets */
+              @media (min-width: 768px) {
+                .koi-decoration {
+                  width: 120px !important;
+                  bottom: -30px !important;
+                  right: -70px !important;
+                }
+                .news-container {
+                  width: 38rem ;
+                }
+              }
+
+              /* 4. Large Tablets / Small Laptops */
+              @media (min-width: 769px) and (max-width: 1023px) {
+                .koi-decoration {
+                  width: 150px !important;
                   bottom: -40px !important;
-                  right: -130px !important;
+                  right: -90px !important;
+                }
+              }
+
+              /* 5. Laptops */
+              @media (min-width: 1024px) {
+                .koi-decoration {
+                  width: 150px !important;
+                  bottom: -30px !important;
+                  right: -65px !important;
+                }
+                .news-container {
+                  width: 48rem ;
+                }
+              }
+
+              /* 5. Desktops */
+              @media (min-width: 1440px) {
+                .koi-decoration {
+                  width: 150px !important;
+                  bottom: -30px !important;
+                  right: -65px !important;
+                }
+                .news-container {
+                  width: 58rem !important;
                 }
               }
             `}</style>
