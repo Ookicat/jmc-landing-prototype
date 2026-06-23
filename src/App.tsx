@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
@@ -14,55 +14,31 @@ import { EventSchedule } from './components/info-pages/EventSchedule';
 import { Floorplan } from './components/info-pages/Floorplan';
 import { Gallery } from './components/info-pages/Gallery';
 
+// Home page component
+function HomePage() {
+  return (
+    <main>
+      <Hero />
+      <LatestNews />
+      <Activities />
+      <Menu />
+      {/* <Rules /> */}
+      <FAQ />
+    </main>
+  );
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'schedule' | 'floorplan' | 'gallery'>('home');
-
-  // Listen for page changes from Header
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const pageElement = document.querySelector('[data-current-page]');
-      if (pageElement) {
-        const page = pageElement.getAttribute('data-current-page') as 'home' | 'schedule' | 'floorplan' | 'gallery';
-        if (page) setCurrentPage(page);
-      }
-    });
-
-    observer.observe(document.body, {
-      attributes: true,
-      subtree: true,
-      attributeFilter: ['data-current-page']
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'schedule':
-        return <EventSchedule />;
-      case 'floorplan':
-        return <Floorplan />;
-      case 'gallery':
-        return <Gallery />;
-      default:
-        return (
-          <main>
-            <Hero />
-            <LatestNews />
-            <Activities />
-            <Menu />
-            {/* <Rules /> */}
-            <FAQ />
-          </main>
-        );
-    }
-  };
-
   return (
     <LanguageProvider>
       <div className="min-h-screen bg-maid-cafe-bg-light">
         <Header />
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/schedule" element={<EventSchedule />} />
+          <Route path="/floorplan" element={<Floorplan />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
         <Footer />
         <ScrollToTop />
       </div>

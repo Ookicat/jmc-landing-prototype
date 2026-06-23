@@ -1,16 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronDown, Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import logo from '../assets/logo.png';
 
 export function Header() {
+  const navigate = useNavigate();
   const { language, setLanguage, t } = useLanguage();
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'schedule' | 'floorplan' | 'gallery'>('home');
 
   const scrollToSection = (id: string) => {
-    setCurrentPage('home');
+    navigate('/');
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
@@ -27,8 +28,8 @@ export function Header() {
     setIsMobileMenuOpen(false);
   };
 
-  const navigateToPage = (page: 'home' | 'schedule' | 'floorplan' | 'gallery') => {
-    setCurrentPage(page);
+  const navigateToPage = (page: 'schedule' | 'floorplan' | 'gallery') => {
+    navigate(`/${page}`);
     setIsInfoOpen(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,7 +44,7 @@ export function Header() {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <button onClick={() => navigateToPage('home')} className="flex-shrink-0">
+          <button onClick={() => navigate('/')} className="flex-shrink-0">
             <div className="w-16 flex items-center justify-center">
               <img src={logo} alt="JSC Maid Cafe Logo" className="w-full h-auto" />
             </div>
@@ -192,9 +193,6 @@ export function Header() {
           </div>
         )}
       </nav>
-
-      {/* Pass the current page to parent via data attribute */}
-      <div data-current-page={currentPage} style={{ display: 'none' }}></div>
     </header>
   );
 }
