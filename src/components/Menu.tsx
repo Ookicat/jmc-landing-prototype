@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useCountdown } from '../hooks/useCountdown';
 
 const CountdownOverlay = ({ timeLeft }: { timeLeft: { days: number; hours: number; minutes: number; seconds: number } }) => (
   <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 p-4">
@@ -15,35 +15,7 @@ const CountdownOverlay = ({ timeLeft }: { timeLeft: { days: number; hours: numbe
 
 export function Menu() {
   const { t } = useLanguage();
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    const targetDate = new Date('2026-07-04T00:00:00').getTime();
-
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      }
-    };
-
-    updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+  const timeLeft = useCountdown();
   
   return (
     <section id="menu" className="py-16 bg-white">

@@ -1,39 +1,10 @@
-import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import heroImage from '../assets/key-visual-mobile-up.webp';
+import { useCountdown } from '../hooks/useCountdown';
 
 export function Hero() {
   const { t } = useLanguage();
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  // Change event countdown date
-  useEffect(() => {
-    const targetDate = new Date('2026-07-04T00:00:00').getTime();
-
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const timeLeft = useCountdown();
 
   const scrollToMenu = () => {
     const element = document.getElementById('menu');
