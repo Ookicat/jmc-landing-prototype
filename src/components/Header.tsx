@@ -40,7 +40,7 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50" style={{ transform: 'translateZ(0)' }}>
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -130,7 +130,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white px-4 py-4 border-t border-gray-200 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto z-50">
             <div className="mb-4 pb-4 border-b border-gray-200">
               <div className="text-maid-cafe-primary">{t('nav.eventName')}</div>
               <div className="text-sm">{t('nav.eventDate')}</div>

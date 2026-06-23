@@ -131,7 +131,7 @@ export function Hero() {
                 <p className="font-bold">{t('hero.date')}</p>
                 <p className="text-black font-bold">{t('hero.location')}</p>
               </div>
-              <button 
+              <button
                 onClick={scrollToMenu}
                 className="bg-maid-cafe-primary text-white font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
               >
@@ -145,16 +145,18 @@ export function Hero() {
 
           {/* Right Section - Image  mask-b-from-20% mask-b-to-80%*/}
           <div className="w-1/2 h-full relative overflow-hidden">
-            <img 
+            <img
               src={heroImage}
               alt="JSC Maid Cafe Key Visual"
               className="w-full h-full object-cover"
               loading="eager"
               decoding="async"
               fetchPriority="high"
-              style={{ 
+              style={{
                 objectPosition: '40% 10%',
-                maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+                maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                transform: 'translateZ(0)', /* Add this */
+                willChange: 'transform',
               }}
             />
           </div>
@@ -162,15 +164,17 @@ export function Hero() {
 
         {/* Mobile View */}
         <div className="md:hidden relative h-[500px] overflow-hidden">
-          <img 
+          <img
             src={heroImage}
             alt="JSC Maid Cafe Key Visual"
             className="w-full h-full object-cover"
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            style={{ 
-              transform: 'translateY(18%)',
+            style={{
+              transform: 'translateY(18%) translateZ(0)', /* Add translateZ(0) here */
+              willChange: 'transform', /* Add this */
+
               maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
             }}
           />
