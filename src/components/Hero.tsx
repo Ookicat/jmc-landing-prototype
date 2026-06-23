@@ -2,23 +2,117 @@ import { useLanguage } from '../contexts/LanguageContext';
 import heroImage from '../assets/key-visual-mobile-up.webp';
 import { useCountdown } from '../hooks/useCountdown';
 
-export function Hero() {
+function scrollToMenu() {
+  const element = document.getElementById('menu');
+  if (!element) {
+    return;
+  }
+
+  const offset = 80;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
+  });
+}
+
+function HeroDesktopCountdown() {
   const { t } = useLanguage();
   const timeLeft = useCountdown();
 
-  const scrollToMenu = () => {
-    const element = document.getElementById('menu');
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+  return (
+    <div className="hidden md:block">
+      <div className="w-full h-24 bg-gradient-to-b from-maid-cafe-bg-light to-maid-cafe-primary"></div>
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+      <section className="w-full bg-maid-cafe-primary py-12">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.days}</div>
+              <div className="text-sm lg:text-base text-white/90">{t('hero.days')}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.hours}</div>
+              <div className="text-sm lg:text-base text-white/90">{t('hero.hours')}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.minutes}</div>
+              <div className="text-sm lg:text-base text-white/90">{t('hero.minutes')}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.seconds}</div>
+              <div className="text-sm lg:text-base text-white/90">{t('hero.seconds')}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function HeroMobileOverlay() {
+  const { t } = useLanguage();
+  const timeLeft = useCountdown();
+
+  return (
+    <div className="absolute inset-0 flex flex-col justify-between px-4 text-maid-cafe-primary" style={{ paddingTop: '3rem', paddingBottom: '1rem' }}>
+      <div className="flex flex-col items-center text-center">
+        <div>
+          <h1 className="text-4xl text-maid-cafe-primary">{t('hero.title')}</h1>
+          <p className="text-[14px] leading-relaxed text-maid-cafe-primary">{t('hero.headline')}</p>
+        </div>
+
+        <div
+          className="text-maid-cafe-primary"
+          style={{
+            position: 'absolute',
+            right: '1rem',
+            top: '55%',
+            transform: 'translateY(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem',
+            alignItems: 'flex-end'
+          }}
+        >
+          <div style={{ textAlign: 'right' }}>
+            <div className="text-3xl">{timeLeft.days}</div>
+            <div className="text-xs">{t('hero.days')}</div>
+          </div>
+
+          <div style={{ textAlign: 'right' }}>
+            <div className="text-3xl">{timeLeft.hours}</div>
+            <div className="text-xs">{t('hero.hours')}</div>
+          </div>
+
+          <div style={{ textAlign: 'right' }}>
+            <div className="text-3xl">{timeLeft.minutes}</div>
+            <div className="text-xs">{t('hero.minutes')}</div>
+          </div>
+
+          <div style={{ textAlign: 'right' }}>
+            <div className="text-3xl">{timeLeft.seconds}</div>
+            <div className="text-xs">{t('hero.seconds')}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <button
+          onClick={scrollToMenu}
+          className="bg-maid-cafe-primary text-white font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
+        >
+          {t('hero.viewMenu')}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function Hero() {
+  const { t } = useLanguage();
 
   return (
     <>
@@ -50,13 +144,16 @@ export function Hero() {
           <div className="w-0.5"></div>
 
           {/* Right Section - Image  mask-b-from-20% mask-b-to-80%*/}
-          <div className="w-1/2 h-full">
+          <div className="w-1/2 h-full relative overflow-hidden">
             <img 
               src={heroImage}
               alt="JSC Maid Cafe Key Visual"
               className="w-full h-full object-cover"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               style={{ 
-                objectPosition: '40% 10%', 
+                objectPosition: '40% 10%',
                 maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
               }}
             />
@@ -69,94 +166,19 @@ export function Hero() {
             src={heroImage}
             alt="JSC Maid Cafe Key Visual"
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             style={{ 
-              transform: 'translateY(18%)', 
-              maskImage: 'linear-gradient(to bottom, black 30%, transparent 100%)'
+              transform: 'translateY(18%)',
+              maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
             }}
           />
-          <div className="absolute inset-0 flex flex-col justify-between px-4 text-maid-cafe-primary" style={{ paddingTop: '3rem', paddingBottom: '1rem' }}>
-            <div className="flex flex-col items-center text-center">
-              <div className="">
-                <h1 className="text-4xl text-maid-cafe-primary">{t('hero.title')}</h1>
-                <p className="text-[14px] leading-relaxed text-maid-cafe-primary">{t('hero.headline')}</p>
-              </div>
-
-              <div
-                className="text-maid-cafe-primary"
-                style={{
-                  position: 'absolute',
-                  right: '1rem',
-                  top: '55%',
-                  transform: 'translateY(-50%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.75rem',
-                  alignItems: 'flex-end'
-                }}
-              >
-                <div style={{ textAlign: 'right' }}>
-                  <div className="text-3xl">{timeLeft.days}</div>
-                  <div className="text-xs">{t('hero.days')}</div>
-                </div>
-
-                <div style={{ textAlign: 'right' }}>
-                  <div className="text-3xl">{timeLeft.hours}</div>
-                  <div className="text-xs">{t('hero.hours')}</div>
-                </div>
-
-                <div style={{ textAlign: 'right' }}>
-                  <div className="text-3xl">{timeLeft.minutes}</div>
-                  <div className="text-xs">{t('hero.minutes')}</div>
-                </div>
-
-                <div style={{ textAlign: 'right' }}>
-                  <div className="text-3xl">{timeLeft.seconds}</div>
-                  <div className="text-xs">{t('hero.seconds')}</div>
-                </div>
-              </div>
-
-            </div>
-            <div className="flex justify-center">
-                <button
-                  onClick={scrollToMenu}
-                  className="bg-maid-cafe-primary text-white font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
-                >
-                  {t('hero.viewMenu')}
-                </button>
-              </div>
-          </div>
+          <HeroMobileOverlay />
         </div>
       </section>
 
-      {/* Desktop Countdown Section */}
-      <div className="hidden md:block">
-        {/* Gradient Connector */}
-        <div className="w-full h-24 bg-gradient-to-b from-maid-cafe-bg-light to-maid-cafe-primary"></div>
-
-        {/* Countdown Timer Section */}
-        <section className="w-full bg-maid-cafe-primary py-12">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.days}</div>
-                <div className="text-sm lg:text-base text-white/90">{t('hero.days')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.hours}</div>
-                <div className="text-sm lg:text-base text-white/90">{t('hero.hours')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.minutes}</div>
-                <div className="text-sm lg:text-base text-white/90">{t('hero.minutes')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl lg:text-6xl text-white mb-2">{timeLeft.seconds}</div>
-                <div className="text-sm lg:text-base text-white/90">{t('hero.seconds')}</div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+      <HeroDesktopCountdown />
     </>
   );
 }
